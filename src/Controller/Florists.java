@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class Florists {
 
-    Scanner scn= new Scanner(System.in);
     String entryStr="";
     double entryNum=0;
 
@@ -12,14 +11,15 @@ public class Florists {
     @return the user's entry value as a double
      */
 
-    public double checkDoule(){
-        //System.out.println("To add a tree please enter its height as a numeric value");
+    public double checkDouble(){
+        Scanner scn= new Scanner(System.in);
         entryStr=scn.nextLine();
         if (!isNumeric(entryStr)) {
-            System.out.println("Invalid entry");
-            checkDoule();
+            System.out.println("Invalid entry, please try again");
+            checkDouble();
         }
         if(isNumeric(entryStr)) entryNum=Double.parseDouble(entryStr);
+        scn.close();
         return entryNum;
     }
 
@@ -43,6 +43,7 @@ public class Florists {
    @return the user's entry value as a string if it is not null, not empty and doesn't start with " "
     */
     public String notNullString(){
+        Scanner scn= new Scanner(System.in);
         entryStr=scn.nextLine();
         if(entryStr!=null) {
             if(!entryStr.isEmpty()){
@@ -60,13 +61,11 @@ public class Florists {
             System.out.println("Your entry should not start with an empty space, please try again");
             notNullString();
         }
+        scn.close();
         return entryStr;
     }
-// System.out.println("To add a new Decorative Item  please enter either 1 or 2 to choose the material type :"+
-//                            "\n1: Wooden "+"n2:Plastic");
-
-
-
-
-
+/*
+ System.out.println("To add a new Decorative Item  please enter either 1 or 2 to choose the material type :"+
+                            "\n1: Wooden "+"n2:Plastic");
+*/
 }
