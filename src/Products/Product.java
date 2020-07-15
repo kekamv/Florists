@@ -5,7 +5,7 @@ import java.time.LocalDate;
 public abstract class Product {
 
     private int id;
-    private String type;
+    protected String type;
     private double price;
     private LocalDate inStockSince;
     private int idCounter =1;
@@ -16,6 +16,9 @@ public abstract class Product {
         inStockSince = LocalDate.now();
 
         idCounter++;
+    }
+    public int getId(){
+        return id;
     }
 
     public double getPrice(){
