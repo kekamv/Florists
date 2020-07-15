@@ -1,5 +1,7 @@
 package Controller;
 
+import Products.Material;
+
 import java.util.Scanner;
 
 public class Florists {
@@ -64,8 +66,20 @@ public class Florists {
         scn.close();
         return entryStr;
     }
-/*
- System.out.println("To add a new Decorative Item  please enter either 1 or 2 to choose the material type :"+
+
+    public Material enumValidationMaterial(){
+        Scanner scn = new Scanner(System.in);
+        entryStr=scn.nextLine();
+        if(!entryStr.equalsIgnoreCase(String.valueOf(Material.PLASTIC))||!entryStr.equalsIgnoreCase(String.valueOf(Material.WOODEN))){
+            System.out.println("Please enter a valid material");
+            enumValidationMaterial();
+        }
+        return Material.valueOf(entryStr.toUpperCase());
+    }
+
+    /*
+    System.out.println("To add a new Decorative Item  please enter either 1 or 2 to choose the material type :"+
                             "\n1: Wooden "+"n2:Plastic");
-*/
-}
+    */
+
+    }
