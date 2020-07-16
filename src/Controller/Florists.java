@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class Florists {
 	
 	Scanner scn=new Scanner(System.in);
-
+	String name;
     String entryStr;
     double entryNum=0;
     Material material;
@@ -26,6 +26,28 @@ public class Florists {
         productsInStock = new Product[]{(Product) treesInStock, (Product) flowersInStock, (Product) decorativeInStock};
     }
 */
+    //This method is actually intended for the FloristsMenu, to be called in the main 
+    public void setName() {
+    	System.out.println("Enter the name of the florist: ");
+    	notNullString();
+    	name=entryStr;
+    }
+    
+    //getName method could also be used in class FloristsMenu
+    public String getName() {
+    	return name;
+    }
+    
+    
+    //Method to return the items in stock classified by type, pending to develop
+    public String getStock() {
+    	String Stock="";
+    	
+    	return Stock;
+    	
+    }
+    
+    
    //Method to create a tree, includes it in treesInStock list and prints the tree's toString
     public void createTree(){
         System.out.println("Please enter the tree's height");
@@ -36,7 +58,7 @@ public class Florists {
         double price = entryNum;
         tree = new Tree(price, height);
         treesInStock.add(tree);
-        System.out.println("Created: ");
+        System.out.println("New item created: ");
         System.out.print(tree.toString());
     }
 
@@ -51,7 +73,7 @@ public class Florists {
         double price = entryNum;
         flower = new Flower(price, colour);
         flowersInStock.add(flower);
-        System.out.println("Created: ");
+        System.out.println("New item created: ");
         System.out.print(flower.toString());
     }
     
@@ -65,7 +87,7 @@ public class Florists {
         double price = entryNum;
         decorative = new Decorative(price, material);
         decorativesInStock.add(decorative);
-        System.out.println("Created: ");
+        System.out.println("New item created: ");
         System.out.print(decorative.toString());
     }
 
