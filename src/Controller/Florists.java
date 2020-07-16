@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Florists {
+	
+	Scanner scn=new Scanner(System.in);
 
     String entryStr;
     double entryNum=0;
@@ -14,14 +16,17 @@ public class Florists {
     Flower flower;
     Decorative decorative;
 
-    List<Tree> treesInStock= new ArrayList<Tree>();
-    List<Flower> flowersInStock = new ArrayList<Flower>();
-    List <Decorative> decorativeInStock = new ArrayList<Decorative>();
-    Product productsInStock [] = {(Product) treesInStock, (Product) flowersInStock, (Product) decorativeInStock};
+    List<Tree> treesInStock= new ArrayList<>();
+    List<Flower> flowersInStock = new ArrayList<>();
+    List <Decorative> decorativeInStock = new ArrayList<>();
+   /* Product productsInStock [];
 
-
+    public Florists() {
+        productsInStock = new Product[]{(Product) treesInStock, (Product) flowersInStock, (Product) decorativeInStock};
+    }
+*/
+   //Method to create a tree, includes in treesInStock list and prints the tree's toString
     public void createTree(){
-        Scanner scn = new Scanner(System.in);
         System.out.println("Please enter the tree's height");
         checkDouble();
         double height= entryNum;
@@ -31,9 +36,23 @@ public class Florists {
         tree = new Tree(price, height);
         treesInStock.add(tree);
         System.out.println("Created: ");
-        tree.toString();
+        System.out.print(tree.toString());
     }
 
+    
+    //Method to create a flower, includes in treesInStock list and prints the tree's toString
+    public void createFlower(){
+        System.out.println("Please enter the flower's colour");
+        notNullString();
+        String colour= entryStr;
+        System.out.println("Please enter the price");
+        checkDouble();
+        double price = entryNum;
+        flower = new Flower(price, colour);
+        flowersInStock.add(flower);
+        System.out.println("Created: ");
+        System.out.print(flower.toString());
+    }
 
 
     /*Method to pick up and check an entry when the system expects a double, includes recursive call
@@ -41,14 +60,20 @@ public class Florists {
      */
 
     public double checkDouble(){
-        Scanner scn= new Scanner(System.in);
         entryStr=scn.nextLine();
-        if (!isNumeric(entryStr)) {
-            System.out.println("Invalid entry, please try again");
-            checkDouble();
+        try {
+        	 if (entryNum !=Double.parseDouble(entryStr)) { 
+             }
+        }catch (NumberFormatException nfe) {
+        	 System.out.println("Invalid entry, please try again");
+             checkDouble();
+		}
+    
+        entryNum=Double.parseDouble(entryStr);
+        if (entryNum<=0) {
+        	System.out.println("Invalid entry, please enter a value greater than 0");
+        	checkDouble();
         }
-        if(isNumeric(entryStr)) entryNum=Double.parseDouble(entryStr);
-        scn.close();
         return entryNum;
     }
 
@@ -72,14 +97,13 @@ public class Florists {
    @return the user's entry value as a string if it is not null, not empty and doesn't start with " "
     */
     public String notNullString(){
-        Scanner scn= new Scanner(System.in);
         entryStr=scn.nextLine();
         if(entryStr!=null) {
             if(!entryStr.isEmpty()){
                 if(!entryStr.startsWith(" ")){
                     return entryStr;
                 } else {
-                    System.out.println("Please enter a value");
+                    System.out.println("Please enter the requested value");
                     notNullString();
                 }
             }else {
@@ -90,12 +114,10 @@ public class Florists {
             System.out.println("Your entry should not start with an empty space, please try again");
             notNullString();
         }
-        scn.close();
         return entryStr;
     }
 
     public Material enumValidationMaterial(){
-        Scanner scn = new Scanner(System.in);
         entryStr=scn.nextLine();
         if(!entryStr.equalsIgnoreCase(String.valueOf(Material.PLASTIC))||!entryStr.equalsIgnoreCase(String.valueOf(Material.WOODEN))){
             System.out.println("Please enter a valid material");
@@ -108,5 +130,6 @@ public class Florists {
     System.out.println("To add a new Decorative Item  please enter either 1 or 2 to choose the material type :"+
                             "\n1: Wooden "+"n2:Plastic");
     */
+    
 
     }
