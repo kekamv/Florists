@@ -1,13 +1,20 @@
 package Controller;
 
-import Products.Material;
+import Products.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Florists {
 
     String entryStr="";
     double entryNum=0;
+
+    List<Tree> treesInStock= new ArrayList<Tree>();
+    List<Flower> flowersInStock = new ArrayList<Flower>();
+    List <Decorative> decorativeInStock = new ArrayList<Decorative>();
+    Product productsInStock [] = {(Product) treesInStock, (Product) flowersInStock, (Product) decorativeInStock};
 
     /*Method to pick up and check an entry when the system expects a double, includes recursive call
     @return the user's entry value as a double
