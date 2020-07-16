@@ -26,6 +26,7 @@ public class MainFlorist {
         Florists myFlorist=new Florists();
         //myFlorist.createTree();
         //myFlorist.createFlower();
+        //myFlorist.createDecorative();
 
         input.close();
     }

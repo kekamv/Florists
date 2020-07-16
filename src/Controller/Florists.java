@@ -12,20 +12,21 @@ public class Florists {
 
     String entryStr;
     double entryNum=0;
+    Material material;
     Tree tree;
     Flower flower;
     Decorative decorative;
 
     List<Tree> treesInStock= new ArrayList<>();
     List<Flower> flowersInStock = new ArrayList<>();
-    List <Decorative> decorativeInStock = new ArrayList<>();
+    List <Decorative> decorativesInStock = new ArrayList<>();
    /* Product productsInStock [];
 
     public Florists() {
         productsInStock = new Product[]{(Product) treesInStock, (Product) flowersInStock, (Product) decorativeInStock};
     }
 */
-   //Method to create a tree, includes in treesInStock list and prints the tree's toString
+   //Method to create a tree, includes it in treesInStock list and prints the tree's toString
     public void createTree(){
         System.out.println("Please enter the tree's height");
         checkDouble();
@@ -40,7 +41,7 @@ public class Florists {
     }
 
     
-    //Method to create a flower, includes in treesInStock list and prints the tree's toString
+    //Method to create a flower, includes it in flowersInStock list and prints the flower's toString
     public void createFlower(){
         System.out.println("Please enter the flower's colour");
         notNullString();
@@ -52,6 +53,20 @@ public class Florists {
         flowersInStock.add(flower);
         System.out.println("Created: ");
         System.out.print(flower.toString());
+    }
+    
+    //Method to create a decorative, includes it in decorativesInStock list and prints the decorative's toString
+    public void createDecorative(){
+        System.out.println("Please enter the decorative's material, either WOODEN or PLASTIC");
+        enumValidationMaterial();
+        material = Material.valueOf(entryStr.toUpperCase());
+        System.out.println("Please enter the price");
+        checkDouble();
+        double price = entryNum;
+        decorative = new Decorative(price, material);
+        decorativesInStock.add(decorative);
+        System.out.println("Created: ");
+        System.out.print(decorative.toString());
     }
 
 
@@ -117,13 +132,13 @@ public class Florists {
         return entryStr;
     }
 
-    public Material enumValidationMaterial(){
+    public String enumValidationMaterial(){
         entryStr=scn.nextLine();
-        if(!entryStr.equalsIgnoreCase(String.valueOf(Material.PLASTIC))||!entryStr.equalsIgnoreCase(String.valueOf(Material.WOODEN))){
+        if(!entryStr.equalsIgnoreCase(String.valueOf(Material.PLASTIC))&&!entryStr.equalsIgnoreCase(String.valueOf(Material.WOODEN))){
             System.out.println("Please enter a valid material");
             enumValidationMaterial();
         }
-        return Material.valueOf(entryStr.toUpperCase());
+        return entryStr;
     }
 
     /*
