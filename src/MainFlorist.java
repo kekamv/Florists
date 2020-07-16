@@ -14,13 +14,13 @@ public class MainFlorist {
 
         System.out.println("Enter the name of the florist: ");
         name = input.nextLine();
-
+        /*
         //The menu of interaction with the Florist is created
         MenuFlorist menuFlorist = new MenuFlorist (name);
 
         //Runs the interacting menu
         menuFlorist.menuFlorist();
-
+*/
         input.close();
     }
 }
