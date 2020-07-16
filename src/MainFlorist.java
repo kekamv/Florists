@@ -1,4 +1,5 @@
 import Controller.Florists;
+import Controller.MenuFlorists;
 
 import java.util.Scanner;
 
@@ -16,13 +17,14 @@ public class MainFlorist {
 
         System.out.println("Enter the name of the florist: ");
         name = input.nextLine();
-        /*
-        The menu of interaction with the Florist is created
-        MenuFlorist menuFlorist = new MenuFlorist (name);
 
-        Runs the interacting menu
-        menuFlorist.menuFlorist();
-*/
+
+        //The menu of interaction with the Florist is created
+        MenuFlorists menuFlorist = new MenuFlorists (name);
+
+        //Runs the interacting menu
+        menuFlorist.menuFlorists();
+
         Florists myFlorist=new Florists();
         //myFlorist.createTree();
         //myFlorist.createFlower();
