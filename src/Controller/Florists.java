@@ -8,13 +8,33 @@ import java.util.Scanner;
 
 public class Florists {
 
-    String entryStr="";
+    String entryStr;
     double entryNum=0;
+    Tree tree;
+    Flower flower;
+    Decorative decorative;
 
     List<Tree> treesInStock= new ArrayList<Tree>();
     List<Flower> flowersInStock = new ArrayList<Flower>();
     List <Decorative> decorativeInStock = new ArrayList<Decorative>();
     Product productsInStock [] = {(Product) treesInStock, (Product) flowersInStock, (Product) decorativeInStock};
+
+
+    public void createTree(){
+        Scanner scn = new Scanner(System.in);
+        System.out.println("Please enter the tree's height");
+        checkDouble();
+        double height= entryNum;
+        System.out.println("Please enter the price");
+        checkDouble();
+        double price = entryNum;
+        tree = new Tree(price, height);
+        treesInStock.add(tree);
+        System.out.println("Created: ");
+        tree.toString();
+    }
+
+
 
     /*Method to pick up and check an entry when the system expects a double, includes recursive call
     @return the user's entry value as a double
