@@ -10,6 +10,7 @@ public abstract class Product {
     private LocalDate inStockSince;
     private int idCounter =1;
 
+
     protected Product(double price){
         id= idCounter;
         this.price = price;
