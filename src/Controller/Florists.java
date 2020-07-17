@@ -2,6 +2,7 @@ package Controller;
 
 import Products.*;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -20,12 +21,7 @@ public class Florists {
     List<Tree> treesInStock= new ArrayList<>();
     List<Flower> flowersInStock = new ArrayList<>();
     List <Decorative> decorativesInStock = new ArrayList<>();
-   /* Product productsInStock [];
 
-    public Florists() {
-        productsInStock = new Product[]{(Product) treesInStock, (Product) flowersInStock, (Product) decorativeInStock};
-    }
-*/
     //This method is actually intended for the FloristsMenu, to be called in the main 
     public void setName() {
     	System.out.println("Enter the name of the florist: ");
@@ -40,11 +36,22 @@ public class Florists {
     
     
     //Method to return the items in stock classified by type, pending to develop
-    public String getStock() {
-    	String Stock="";
-    	
-    	return Stock;
-    	
+    public void getStock() {
+
+    	StringBuilder stock=new StringBuilder("Products in stock on ");
+        stock.append(LocalDate.now());
+        stock.append(" :\n");
+        System.out.println(stock);
+
+        System.out.println("Trees: \n");
+        for(Tree t :treesInStock) System.out.println(t.toString());
+
+        System.out.println("Flowers: \n");
+        for(Flower f :flowersInStock) System.out.println(f.toString());
+
+        System.out.println("Decorative items: \n");
+        for(Decorative d: decorativesInStock) System.out.println(d.toString());
+
     }
     
     

@@ -6,9 +6,6 @@ public class MenuFlorists {
 
     String name;
 
-    public MenuFlorists(String name){
-        this.name = name;
-    }
 
     public void menuFlorists(){
 
