@@ -8,7 +8,7 @@ public abstract class Product {
     protected String type;
     private double price;
     private LocalDate inStockSince;
-    private int idCounter =1;
+    private static int idCounter =1;
 
 
     protected Product(double price){

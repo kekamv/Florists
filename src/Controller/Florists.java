@@ -43,14 +43,17 @@ public class Florists {
         stock.append(" :\n");
         System.out.println(stock);
 
-        System.out.println("Trees: \n");
+        System.out.println("Trees:");
         for(Tree t :treesInStock) System.out.println(t.toString());
+        System.out.println();
 
-        System.out.println("Flowers: \n");
+        System.out.println("Flowers:");
         for(Flower f :flowersInStock) System.out.println(f.toString());
+        System.out.println();
 
-        System.out.println("Decorative items: \n");
+        System.out.println("Decorative items:");
         for(Decorative d: decorativesInStock) System.out.println(d.toString());
+        System.out.println();
 
     }
     
@@ -66,7 +69,7 @@ public class Florists {
         tree = new Tree(price, height);
         treesInStock.add(tree);
         System.out.println("New item created: ");
-        System.out.print(tree.toString());
+        System.out.println(tree.toString());
     }
 
     
@@ -81,7 +84,7 @@ public class Florists {
         flower = new Flower(price, colour);
         flowersInStock.add(flower);
         System.out.println("New item created: ");
-        System.out.print(flower.toString());
+        System.out.println(flower.toString());
     }
     
     //Method to create a decorative, includes it in decorativesInStock list and prints the decorative's toString
@@ -95,7 +98,7 @@ public class Florists {
         decorative = new Decorative(price, material);
         decorativesInStock.add(decorative);
         System.out.println("New item created: ");
-        System.out.print(decorative.toString());
+        System.out.println(decorative.toString());
     }
 
 
